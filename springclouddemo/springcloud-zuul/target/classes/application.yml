@@ -1,0 +1,26 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: springcloud-zuul
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/, http://eureka7003.com:7003/eureka/ #集群情况下的提供者发布配置网址
+  instance:
+    instance-id: zuul-9527
+    prefer-ip-address: true
+
+info:
+  app.name: zuul-demo-springcloud
+  company.name: yjn.com
+
+zuul:
+  routes:
+    mydept.serviceId: springcloud-provider-dept
+    mydept.path: /mydept/**
+    # 上述操作用于将微服务名称springcloud-provider-dept隐藏起来，即url上的springcloud-provider-dept将被替换为mydept
+  ignored-services: springcloud-provider-dept #不再使用这个路径访问 隐藏全部路径为：“*”
+  prefix: /yangjn #设置统一的前缀

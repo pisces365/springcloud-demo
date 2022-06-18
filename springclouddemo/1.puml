@@ -1,0 +1,11 @@
+@startuml
+class com.demo.springcloud.ConfigClient_3355 {
++ {static} void main(String[])
+}
+class com.demo.springcloud.controller.ConfigClientController {
+- String applicationName
+- String eurekaServer
+- String port
++ String getConfig()
+}
+@enduml

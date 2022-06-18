@@ -1,0 +1,19 @@
+@startuml
+class com.demo.springcloud.service.DeptClientServiceFallBackFactory {
++ DeptClientService create(Throwable)
+}
+class com.demo.springcloud.pojo.Dept {
+- Long deptno
+- String dname
+- String db_source
+}
+interface com.demo.springcloud.service.DeptClientService {
+~ Dept queryById(Long)
+~ List<Dept> queryAll()
+~ boolean addDept(Dept)
+}
+
+
+feign.hystrix.FallbackFactory <|.. com.demo.springcloud.service.DeptClientServiceFallBackFactory
+java.io.Serializable <|.. com.demo.springcloud.pojo.Dept
+@enduml

@@ -1,0 +1,210 @@
+@startuml
+interface com.demo.springcloud.dao.DeptDao {
++ boolean addDept(Dept)
++ Dept queryById(Long)
++ List<Dept> queryAll()
+}
+class com.demo.springcloud.DeptProviderHystrix_8001 {
++ {static} void main(String[])
++ ServletRegistrationBean hystrixMetricsStreamServlet()
+}
+class com.demo.springcloud.service.DeptServiceImpl {
+- DeptDao deptDao
++ boolean addDept(Dept)
++ Dept queryById(Long)
++ List<Dept> queryAll()
+}
+class com.demo.springcloud.DeptProvider_8003 {
++ {static} void main(String[])
+}
+interface com.demo.springcloud.dao.DeptDao {
++ boolean addDept(Dept)
++ Dept queryById(Long)
++ List<Dept> queryAll()
+}
+class com.demo.springcloud.DeptConsumer_feign {
++ {static} void main(String[])
+}
+interface com.demo.springcloud.service.DeptService {
++ boolean addDept(Dept)
++ Dept queryById(Long)
++ List<Dept> queryAll()
+}
+interface com.demo.springcloud.service.DeptService {
++ boolean addDept(Dept)
++ Dept queryById(Long)
++ List<Dept> queryAll()
+}
+class com.demo.springcloud.EurekaServer_7003 {
++ {static} void main(String[])
+}
+class com.demo.springcloud.config.ConfigBean {
++ RestTemplate getRestTemplate()
+}
+class com.demo.springcloud.Config_Server_3344 {
++ {static} void main(String[])
+}
+class com.demo.springcloud.DeptConsumer_80 {
++ {static} void main(String[])
+}
+interface com.demo.springcloud.service.DeptService {
++ boolean addDept(Dept)
++ Dept queryById(Long)
++ List<Dept> queryAll()
+}
+class com.demo.springcloud.DeptConsumerDashboard_9001 {
++ {static} void main(String[])
+}
+interface com.demo.springcloud.dao.DeptDao {
++ boolean addDept(Dept)
++ Dept queryById(Long)
++ List<Dept> queryAll()
+}
+class com.demo.springcloud.EurekaServer_7001 {
++ {static} void main(String[])
+}
+class com.demo.springcloud.ZuulApplication_9527 {
++ {static} void main(String[])
+}
+interface com.demo.springcloud.service.DeptClientService {
+~ Dept queryById(Long)
+~ List<Dept> queryAll()
+~ boolean addDept(Dept)
+}
+class com.demo.springcloud.controller.DeptController {
+- DeptService deptService
+- DiscoveryClient client
++ boolean addDept(Dept)
++ Dept queryById(Long)
++ List<Dept> queryAll()
++ Object discovery()
+}
+class com.demo.springcloud.controller.DeptConsumerController {
+- DeptClientService service
++ boolean add(Dept)
++ Dept get(Long)
++ List<Dept> list()
+}
+class com.demo.springcloud.controller.DeptController {
+- DeptService deptService
+- DiscoveryClient client
++ boolean addDept(Dept)
++ Dept queryById(Long)
++ List<Dept> queryAll()
++ Object discovery()
+}
+class com.demo.springcloud.DeptProvider_8001 {
++ {static} void main(String[])
+}
+class com.demo.springcloud.controller.DeptController {
+- DeptService deptService
+- DiscoveryClient client
++ boolean addDept(Dept)
++ Dept queryById(Long)
++ List<Dept> queryAll()
++ Object discovery()
+}
+class com.demo.springcloud.EurekaServer_7002 {
++ {static} void main(String[])
+}
+class com.demo.springcloud.DeptProvider_8001 {
++ {static} void main(String[])
+}
+class com.demo.springcloud.controller.ConfigClientController {
+- String applicationName
+- String eurekaServer
+- String port
++ String getConfig()
+}
+class com.demo.springcloud.EurekaServer_7001 {
++ {static} void main(String[])
+}
+class com.demo.springcloud.service.DeptClientServiceFallBackFactory {
++ DeptClientService create(Throwable)
+}
+class com.demo.springcloud.pojo.Dept {
+- Long deptno
+- String dname
+- String db_source
++ <<Create>> Dept(String)
+}
+class com.demo.springcloud.controller.DeptController {
+- DeptService deptService
+- DiscoveryClient client
++ boolean addDept(Dept)
++ Dept queryById(Long)
++ List<Dept> queryAll()
++ Object discovery()
+}
+class com.demo.springcloud.controller.DeptController {
+- DeptService deptService
++ Dept get(Long)
++ Dept hystrixGet(Long)
+}
+class com.demo.springcloud.ConfigClient_3355 {
++ {static} void main(String[])
+}
+class com.demo.springcloud.service.DeptServiceImpl {
+- DeptDao deptDao
++ boolean addDept(Dept)
++ Dept queryById(Long)
++ List<Dept> queryAll()
+}
+interface com.demo.springcloud.service.DeptService {
++ boolean addDept(Dept)
++ Dept queryById(Long)
++ List<Dept> queryAll()
+}
+interface com.demo.springcloud.service.DeptService {
++ boolean addDept(Dept)
++ Dept queryById(Long)
++ List<Dept> queryAll()
+}
+class com.demo.springcloud.controller.DeptConsumerController {
+- RestTemplate restTemplate
+- {static} String REST_URL_PREFIX
++ boolean add(Dept)
++ Dept get(Long)
++ List<Dept> list()
+}
+interface com.demo.springcloud.dao.DeptDao {
++ boolean addDept(Dept)
++ Dept queryById(Long)
++ List<Dept> queryAll()
+}
+class com.demo.springcloud.DeptProvider_8002 {
++ {static} void main(String[])
+}
+class com.demo.springcloud.service.DeptServiceImpl {
+- DeptDao deptDao
++ boolean addDept(Dept)
++ Dept queryById(Long)
++ List<Dept> queryAll()
+}
+class com.demo.springcloud.service.DeptServiceImpl {
+- DeptDao deptDao
++ boolean addDept(Dept)
++ Dept queryById(Long)
++ List<Dept> queryAll()
+}
+class com.demo.springcloud.service.DeptServiceImpl {
+- DeptDao deptDao
++ boolean addDept(Dept)
++ Dept queryById(Long)
++ List<Dept> queryAll()
+}
+interface com.demo.springcloud.dao.DeptDao {
++ boolean addDept(Dept)
++ Dept queryById(Long)
++ List<Dept> queryAll()
+}
+
+
+com.demo.springcloud.service.DeptService <|.. com.demo.springcloud.service.DeptServiceImpl
+feign.hystrix.FallbackFactory <|.. com.demo.springcloud.service.DeptClientServiceFallBackFactory
+java.io.Serializable <|.. com.demo.springcloud.pojo.Dept
+com.demo.springcloud.service.DeptService <|.. com.demo.springcloud.service.DeptServiceImpl
+com.demo.springcloud.service.DeptService <|.. com.demo.springcloud.service.DeptServiceImpl
+com.demo.springcloud.service.DeptService <|.. com.demo.springcloud.service.DeptServiceImpl
+com.demo.springcloud.service.DeptService <|.. com.demo.springcloud.service.DeptServiceImpl
+@enduml
